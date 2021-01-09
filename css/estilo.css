@@ -1,7 +1,22 @@
+/*
+	Colores Insititucionales
+		Azul: rgba(61, 123, 172, 1);
+		Celeste: rgba(171, 212, 229, 1);
+		Verde: rgba(141, 194, 145, 1);
+		Gris Oscuro:rgba(156, 154, 133, 1);
+		Gris Claro: rgba(233, 245, 216, 1);
+*/
+
 *
 	{
 		margin: 0;
 		padding: 0;
+	}
+
+@font-face 
+	{
+  		font-family: LeagueSpartanBold;
+  		src: url(../fonts/LeagueSpartan-Bold.otf);
 	}
 
 body
@@ -10,7 +25,7 @@ body
 		height: 100vh;
 		display: flex;
 		justify-content: center;
-
+		background-color:rgba(233, 245, 216, 1);
 	}
 
 div.boton
@@ -25,6 +40,7 @@ div.boton
 		justify-content: center;
 		box-shadow: 0 5px 15px 10px rgba(0,0,0,0.2);
 		transition: all 0.5s;
+		z-index: 5;
 	}
 
 div.boton.mostrar
@@ -57,7 +73,7 @@ div#sig > p
 div.boton:hover, .presionado
 	{
 		transform: translateY(10px);
-		box-shadow: 0 0px 10px 5px rgba(0,0,0,0.4);
+		box-shadow: 0 0px 10px 5px rgba(0,0,0,0.3);
 		transition: all 0.5s;
 	}
 
@@ -69,7 +85,6 @@ section
 
 article
 	{
-		background-color:blue;
 		width: 100%;
 		min-width: 300px;
 		height: 100%;
@@ -78,10 +93,59 @@ article
 
 article.mostrar
 	{
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 300px;
 	}
 
-article:nth-child(odd)
+div.info
 	{
-		background-color:red;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		color: rgba(61, 123, 172, 1);
+		padding: 10px 40px;
+	}
+
+div.info > h2
+	{
+		font-family: LeagueSpartanBold;
+		margin-bottom: 10px;
+		font-size: 1.2em;
+	}
+
+div.info > p
+	{
+		text-align: justify;
+		font-family: "Helvetica", sans-serif;
+		font-size: 1em;
+	}
+
+@media screen and (min-width: 800px)
+	{
+		section
+			{
+				max-width: 800px;
+				
+			}
+
+		article.slide.mostrar
+			{
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr;
+			}
+
+		div.info > h2
+			{
+				font-family: LeagueSpartanBold;
+				margin-bottom: 20px;
+				font-size: 1.5em;
+			}
+
+		div.info > p
+			{
+				font-size: 1.3em;
+			}
+
 	}

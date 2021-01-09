@@ -20,14 +20,24 @@ const cambiar=(num)=>
 						pos=4;
 					}			
 			}
-		slide(pos);
+		slide(pos,num);
 	}
 
-const slide=(num)=>
+const slide=(pos, num)=>
 	{
 		for(i=0; i<slides.length; i++)
 			{
-				slides[i].classList.remove("mostrar");
+				slides[i].classList.remove("mostrar", 'animate__animated', 'animate__backInRight');
 			}
-		slides[num].classList.add("mostrar");
+
+		if(num==-1)
+			{
+				slides[pos].classList.add("mostrar", 'animate__animated', 'animate__backInLeft');						
+			}
+		else
+			{
+				slides[pos].classList.add("mostrar", 'animate__animated', 'animate__backInRight');
+
+			}	
+		
 	}
