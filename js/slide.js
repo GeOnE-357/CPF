@@ -14,10 +14,10 @@ const cambiar=(num)=>
 			{
 				botones[0].classList.add("mostrar");
 				botones[1].classList.add("mostrar");
-				if(pos>=4)
+				if(pos>=5)
 					{
 						botones[1].classList.remove("mostrar");
-						pos=4;
+						pos=5;
 					}			
 			}
 		slide(pos,num);

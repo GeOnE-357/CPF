@@ -31,7 +31,7 @@ body
 div.boton
 	{
 		position: fixed;
-		background-color: white;
+		background-color: rgba(255,255,255,0.3);
 		border-radius: 8px;
 		width: 40px;
 		height: 40px;
@@ -51,7 +51,7 @@ div.boton.mostrar
 div#ant
 	{
 		top:calc(50vh - 20px);
-		left: 20px;
+		left: 10px;
 	}
 
 div#ant > p
@@ -62,7 +62,7 @@ div#ant > p
 div#sig
 	{
 		top:calc(50vh - 20px);
-		right: 20px;
+		right: 10px;
 	}
 
 div#sig > p
@@ -88,14 +88,42 @@ article
 		width: 100%;
 		min-width: 300px;
 		height: 100%;
+		color: rgba(61, 123, 172, 1);
 		display: none;
 	}
 
+article:nth-child(odd)
+	{
+		background-image: url("../img/fondo/cir-b-c.png"), url("../img/fondo/cir-s-v.png");
+		background-position: 20vw 50vh, 10vw 10vh;
+		background-repeat: no-repeat; 
+	}
+
+article:nth-child(even)
+	{
+		background-image: url("../img/fondo/cir-b-v.png"), url("../img/fondo/cir-s-g.png");
+		background-position: 50vw 40vh, 40vw 20vh;
+		background-repeat: no-repeat; 
+	}
+
+/*
+	{
+		background-image: url("../img/fondo/cir-b-g.png"), url("../img/fondo/cir-s-c.png");
+		background-position: 20vw 10vh, 70vw 30vh;
+		background-repeat: no-repeat; 
+	}
+*/
 article.mostrar
 	{
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 300px;
+		grid-template-rows: 1fr 1fr;
+	}
+
+div.animacion
+	{
+		/*background-color: rgba(61, 123, 172, 1);*/
+		padding: 10px 40px;
 	}
 
 div.info
@@ -103,29 +131,91 @@ div.info
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		color: rgba(61, 123, 172, 1);
 		padding: 10px 40px;
 	}
 
-div.info > h2
+div > h2
 	{
 		font-family: LeagueSpartanBold;
 		margin-bottom: 10px;
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 
-div.info > p
+div > p
 	{
 		text-align: justify;
 		font-family: "Helvetica", sans-serif;
-		font-size: 1em;
+		font-size: 0.9em;
 	}
 
-@media screen and (min-width: 800px)
+p.subtitulo
+	{
+		margin-top: 10px;
+	}
+
+div > ul
+	{
+		background-color: rgba(61, 123, 172, 1);
+		color: white;
+		border-radius: 10px;
+		padding: 10px;
+		margin-top: 10px;
+		font-family: "Helvetica", sans-serif;
+		font-size: 0.9em;
+	}
+
+div > ul > li
+	{
+		margin-left: 20px;
+	}
+div.redes
+	{
+		grid-column: span 1;
+		grid-row: span 2;
+		padding: 10px 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+div.redes a
+	{
+		display: flex;
+		align-items: center;
+		background-color: rgba(61, 123, 172, 1);
+		text-decoration: none;
+		font-family: "Helvetica", sans-serif;
+		width: 100%;
+		max-width: 300px;
+		color: white;
+		box-shadow: 0 5px 15px 10px rgba(0,0,0,0.2);
+		padding: 10px;
+		border-radius: 10px;
+		margin-bottom: 30px;
+		transition: all 0.5s;
+	}
+
+div.redes a:hover
+	{
+		transform: scale(0.9);
+		box-shadow: 0 0px 10px 5px rgba(0,0,0,0.3);
+		transition: all 0.5s;
+	}
+
+div.redes a > img
+	{
+		width: 40px;
+		height: 40px;
+		margin-right: 10px;
+		align-items: flex-start;
+	}
+
+@media screen and (min-width: 900px)
 	{
 		section
 			{
-				max-width: 800px;
+				max-width: 900px;
 				
 			}
 
@@ -136,16 +226,27 @@ div.info > p
 				grid-template-rows: 1fr;
 			}
 
-		div.info > h2
+		div > h2
 			{
 				font-family: LeagueSpartanBold;
 				margin-bottom: 20px;
-				font-size: 1.5em;
+				font-size: 1.4em;
 			}
 
-		div.info > p
+		div > p, div > ul
 			{
-				font-size: 1.3em;
+				font-size: 1.2em;
+			}
+
+		div > p.subtitulo
+			{
+				margin-top: 30px;
+			}
+
+		div.redes
+			{
+				grid-column: span 2;
+				grid-row: span 1;
 			}
 
 	}
