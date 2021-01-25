@@ -31,14 +31,15 @@ body
 div.boton
 	{
 		position: fixed;
-		background-color: rgba(255,255,255,0.3);
+		color:rgba(171, 212, 229, 1);
+		border:2px solid rgba(171, 212, 229, 1);
 		border-radius: 8px;
 		width: 40px;
 		height: 40px;
 		display: none;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 5px 15px 10px rgba(0,0,0,0.2);
+		box-shadow: 0 5px 2px 0px rgba(171, 212, 229, 0.3);
 		transition: all 0.5s;
 		z-index: 5;
 	}
@@ -51,7 +52,7 @@ div.boton.mostrar
 div#ant
 	{
 		top:calc(50vh - 20px);
-		left: 10px;
+		left: 5px;
 	}
 
 div#ant > p
@@ -62,7 +63,7 @@ div#ant > p
 div#sig
 	{
 		top:calc(50vh - 20px);
-		right: 10px;
+		right: 5px;
 	}
 
 div#sig > p
@@ -73,7 +74,7 @@ div#sig > p
 div.boton:hover, .presionado
 	{
 		transform: translateY(10px);
-		box-shadow: 0 0px 10px 5px rgba(0,0,0,0.3);
+		box-shadow: 0 0 5px 0 rgba(171, 212, 229, 0.3);
 		transition: all 0.5s;
 	}
 
@@ -123,7 +124,7 @@ article.mostrar
 div.animacion
 	{
 		/*background-color: rgba(61, 123, 172, 1);*/
-		padding: 10px 40px;
+		padding: 10px 55px;
 	}
 
 div.info
@@ -131,37 +132,49 @@ div.info
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: 10px 40px;
+		padding: 10px 55px;
 	}
 
 div > h2
 	{
 		font-family: LeagueSpartanBold;
 		margin-bottom: 10px;
-		font-size: 1.1em;
+		font-size: 0.9em;
 	}
 
 div > p
 	{
 		text-align: justify;
 		font-family: "Helvetica", sans-serif;
-		font-size: 0.9em;
+		font-size: 0.8em;
 	}
 
 p.subtitulo
 	{
+		font-family: LeagueSpartanBold;
 		margin-top: 10px;
+		margin-bottom: 5px;
+		font-size: 0.8em;
 	}
 
-div > ul
+div.listado
 	{
 		background-color: rgba(61, 123, 172, 1);
 		color: white;
 		border-radius: 10px;
-		padding: 10px;
+		padding: 10px 10px 10px 10px;
 		margin-top: 10px;
+	}
+
+div.listado > p.subtitulo
+	{
+		margin-top: 0;
+	}
+
+div > ul
+	{
 		font-family: "Helvetica", sans-serif;
-		font-size: 0.9em;
+		font-size: 0.7em;
 	}
 
 div > ul > li
@@ -213,6 +226,16 @@ div.redes a > img
 
 @media screen and (min-width: 900px)
 	{
+		div#ant
+			{
+				left: 40px;
+			}
+
+		div#sig
+			{
+				right: 40px;
+			}
+
 		section
 			{
 				max-width: 900px;
@@ -226,20 +249,40 @@ div.redes a > img
 				grid-template-rows: 1fr;
 			}
 
+		div.animacion
+			{
+				padding: 10px 20px;
+			}
+
+		div.info
+			{
+				padding: 10px 20px;
+			}
+
 		div > h2
 			{
-				font-family: LeagueSpartanBold;
 				margin-bottom: 20px;
 				font-size: 1.4em;
 			}
 
 		div > p, div > ul
 			{
-				font-size: 1.2em;
+				font-size: 0.9em;
 			}
 
-		div > p.subtitulo
+		div.listado
 			{
+				margin-top: 30px;
+			}
+
+		div.listado > p.subtitulo
+			{
+				margin-top: 0;
+			}
+
+		p.subtitulo
+			{
+				font-size: 1em;
 				margin-top: 30px;
 			}
 
