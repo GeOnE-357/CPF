@@ -215,6 +215,17 @@ div.redes a > img
 		align-items: flex-start;
 	}
 
+.centrado
+	{
+		text-align: center;
+	}
+
+.logo-prin
+	{
+		max-width: 400px;
+		align-self: flex-end;
+	}
+
 @media screen and (min-width: 900px)
 	{
 		div#ant
