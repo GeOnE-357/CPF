@@ -25,7 +25,7 @@ body
 		height: 100vh;
 		display: flex;
 		justify-content: center;
-		background-color:rgba(233, 245, 216, 1);
+		background-color:rgba(233, 245, 216, 0.5);
 	}
 
 div.boton
@@ -93,27 +93,6 @@ article
 		display: none;
 	}
 
-article:nth-child(odd)
-	{
-		background-image: url("../img/fondo/cir-b-c.png"), url("../img/fondo/cir-s-v.png");
-		background-position: 20vw 50vh, 10vw 10vh;
-		background-repeat: no-repeat; 
-	}
-
-article:nth-child(even)
-	{
-		background-image: url("../img/fondo/cir-b-v.png"), url("../img/fondo/cir-s-g.png");
-		background-position: 50vw 40vh, 40vw 20vh;
-		background-repeat: no-repeat; 
-	}
-
-/*
-	{
-		background-image: url("../img/fondo/cir-b-g.png"), url("../img/fondo/cir-s-c.png");
-		background-position: 20vw 10vh, 70vw 30vh;
-		background-repeat: no-repeat; 
-	}
-*/
 article.mostrar
 	{
 		display: grid;
@@ -123,16 +102,28 @@ article.mostrar
 
 div.animacion
 	{
-		/*background-color: rgba(61, 123, 172, 1);*/
 		padding: 10px 55px;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
 	}
 
-div.info
+div.animacion > img
+	{
+		width: 100%;
+	}
+
+div.info, div.avisos
 	{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		padding: 10px 55px;
+	}
+
+div.avisos
+	{
+		padding: 10px;
 	}
 
 div > h2
@@ -163,7 +154,7 @@ div.listado
 		color: white;
 		border-radius: 10px;
 		padding: 10px 10px 10px 10px;
-		margin-top: 10px;
+		margin: 10px;
 	}
 
 div.listado > p.subtitulo
@@ -252,11 +243,18 @@ div.redes a > img
 		div.animacion
 			{
 				padding: 10px 20px;
+				align-items: center;
+				
 			}
 
 		div.info
 			{
 				padding: 10px 20px;
+			}
+
+		div.avisos
+			{
+				flex-direction: row;
 			}
 
 		div > h2
@@ -272,7 +270,7 @@ div.redes a > img
 
 		div.listado
 			{
-				margin-top: 30px;
+				margin: 20px;
 			}
 
 		div.listado > p.subtitulo
