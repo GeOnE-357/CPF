@@ -176,43 +176,47 @@ div.redes
 	{
 		grid-column: span 1;
 		grid-row: span 2;
-		padding: 10px 40px;
+		padding: 10px 30px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
 
-div.redes a
+div.links
+	{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 10px 0;
+		grid-gap: 20px;
+	}
+
+div.links a
 	{
 		display: flex;
 		align-items: center;
 		background-color: rgba(61, 123, 172, 1);
 		text-decoration: none;
 		font-family: "Helvetica", sans-serif;
-		width: 100%;
-		max-width: 300px;
 		color: white;
 		box-shadow: 0 5px 15px 10px rgba(0,0,0,0.2);
 		padding: 10px;
 		border-radius: 10px;
-		margin-bottom: 30px;
 		transition: all 0.5s;
 	}
 
-div.redes a:hover
+div.links a:hover
 	{
 		transform: scale(0.9);
 		box-shadow: 0 0px 10px 5px rgba(0,0,0,0.3);
 		transition: all 0.5s;
 	}
 
-div.redes a > img
+div.links a > img
 	{
 		width: 40px;
 		height: 40px;
-		margin-right: 10px;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 .centrado
@@ -224,6 +228,22 @@ div.redes a > img
 	{
 		max-width: 400px;
 		align-self: flex-end;
+	}
+
+div.logos
+	{
+		margin: 10px 0;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows:1fr 1fr;
+		align-items: center;
+		justify-content: center;
+	}
+
+img.logo
+	{
+		max-width: 150px;
 	}
 
 @media screen and (min-width: 900px)
@@ -301,4 +321,9 @@ div.redes a > img
 				grid-row: span 1;
 			}
 
+		div.logos
+			{
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				grid-template-rows: 1fr;
+			}
 	}
