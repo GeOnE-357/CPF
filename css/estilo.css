@@ -93,6 +93,11 @@ article
 		display: none;
 	}
 
+article.intro > div.animacion
+	{
+		background-image: none, none;
+	}
+
 article.mostrar
 	{
 		display: grid;
@@ -259,6 +264,15 @@ img.logo
 			{
 				max-width: 900px;
 				
+			}
+
+		article.intro > div.animacion
+			{
+				background-image: url('../img/fondo/aves01.png'),url('../img/fondo/aves02.png');
+				background-repeat: no-repeat, no-repeat;
+				background-position: left, right;
+				background-size: 300px, 300px;
+
 			}
 
 		article.slide.mostrar
