@@ -233,7 +233,7 @@ div.links a > img
 
 div.logos
 	{
-		margin: 40px 0;
+		margin: 10px 0;
 		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -244,6 +244,7 @@ div.logos
 img.logo
 	{
 		max-width: 100px;
+		max-height: 100px;
 		align-self: center;
 		justify-self:center;
 	}
@@ -341,5 +342,6 @@ img.logo
 		img.logo
 			{
 				max-width: 150px;
+				max-height: 150px;
 			}
 	}
