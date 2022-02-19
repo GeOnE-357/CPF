@@ -41,6 +41,11 @@ article.mostrar
 		grid-template-rows: 1fr 1fr;
 	}
 
+article.slide.mostrar
+	{
+		grid-template-rows: 300px 1fr;	
+	}
+
 p
 	{
 		font-family: "Helvetica", sans-serif;
