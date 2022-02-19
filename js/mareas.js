@@ -184,32 +184,35 @@ function completar(mareas, sitio, fecha)
 		document.querySelector("#mapa").src=sitio.mapa;
 		const dia = dbDia(fecha.getDay());
 		let hoy = fecha.getDate();
-		console.log(mareas);
-		if(hoy < 10)
-			{
-				hoy="0"+hoy;
-			}
+		hoy = agregarCero(hoy);
 		let mes = fecha.getMonth()+1;
-		if(mes < 10)
-			{
-				mes="0"+mes;
-			}
-		document.querySelector("#fecha").innerHTML="Consulta: "+dia+" "+hoy+"/"+mes+" - "+fecha.getHours()+":"+fecha.getMinutes();
+		mes = agregarCero(mes);
+		document.querySelector("#fecha").innerHTML="Consulta: "+dia+" "+hoy+"/"+mes+" - "+agregarCero(fecha.getHours())+":"+agregarCero(fecha.getMinutes());
 		const listado = document.querySelector("#listado");
 		let estado;
 		for(dato of mareas)
 			{
 				const item = document.createElement("li");
-				item.innerHTML="<b>"+dato.horas+":"+dato.minutos+"</b>";
+				item.innerHTML="<b>"+agregarCero(dato.horas)+":"+agregarCero(dato.minutos)+"</b>";
 				if(dato.horas_fin!==undefined)
 					{
-						item.innerHTML+=" - <b>"+dato.horas_fin+":"+dato.minutos_fin+"</b>";
+						item.innerHTML+=" a <b>"+agregarCero(dato.horas_fin)+":"+agregarCero(dato.minutos_fin)+"</b>";
+					}
+				item.innerHTML+=" = "+dato.estado;
+				if(dato.estado==="bajamar")
+					{
+						item.innerHTML+=" - <b>Transitar.</b>"
+					}
+				else
+					{
+						item.innerHTML+=" - <b>No transitar.</b>"	
 					}
 				if(dato.circular)
 					{
 						estado=dato.circular;
 						item.classList.add("cercano");
 					}
+
 				listado.appendChild(item);
 			}
 		const item = document.createElement("li");
@@ -225,4 +228,19 @@ function completar(mareas, sitio, fecha)
 				item.innerHTML="<b>Ud. puede transitar ahora.</b>";
 			}
 		listado.appendChild(item);
+	}
+
+//Agrega un cero a los numeros menores a nueve.
+function agregarCero(num)
+	{
+		let final;
+		if(num < 10)
+			{
+				final = "0"+num;
+			}
+		else
+			{
+				final = num;
+			}
+		return final;
 	}
