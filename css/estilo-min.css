@@ -128,7 +128,7 @@ div.info
 	{
 		display: flex;
 		flex-direction: column;
-		justify-content: start;
+		align-items: stretch;
 		padding: 10px 20px;
 	}
 
