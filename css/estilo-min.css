@@ -1,0 +1,317 @@
+*
+	{
+		margin: 0;
+		padding: 0;
+	}
+
+@font-face 
+	{
+  		font-family: LeagueSpartanBold;
+  		src: url(../fonts/LeagueSpartan-Bold.otf);
+	}
+
+body
+	{
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		background-color:rgba(233, 245, 216, 0.5);
+	}
+
+section
+	{
+		max-width: 600px;
+		width: 100%;
+	}
+
+article
+	{
+		width: 100%;
+		min-width: 300px;
+		height: 100%;
+		color: rgba(61, 123, 172, 1);
+		display: none;
+	}
+
+article.mostrar
+	{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+p
+	{
+		font-family: "Helvetica", sans-serif;
+		font-size: 1em;
+	}
+
+a.boton
+	{
+
+		color: rgba(61, 123, 172, 0.7);
+		width: 100%;
+		border:2px solid rgba(171, 212, 229, 1);
+		border-radius: 8px;
+		max-width: 150px;
+		margin: 30px 20px 20px 20px;
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		text-decoration: none;
+		box-shadow: 0 5px 2px 0px rgba(171, 212, 229, 0.3);
+		transition: all 0.5s;
+		z-index: 5;
+		font-family: LeagueSpartanBold;
+	}
+
+a.boton:hover
+	{
+		transform: translateY(10px);
+		box-shadow: 0 0 5px 0 rgba(171, 212, 229, 0.3);
+		transition: all 0.5s;
+	}
+
+div.botones
+	{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+div.boton
+	{
+		padding: 10px;
+		max-width: 80px;
+		transition: all 0.5s;
+	}
+
+div.boton:hover
+	{
+		transform: scale(0.9);
+		transition: all 0.5s;
+	}
+
+div.imagen > img
+	{
+		width: 100%;
+	}
+
+div.boton > p
+	{
+		text-align: center;
+		margin-top: 5px;
+	}
+
+iframe
+	{
+		width: 100%;
+		height: 100%;
+		border-radius: 0px;
+		max-height: 300px;
+		border: none;
+		margin: 0;
+		display: flex;
+		align-self: center;
+	}
+
+div.info
+	{
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		padding: 10px 20px;
+	}
+
+div.info > div.boton
+	{
+		background-color: rgba(61, 123, 172, 1);
+		border-radius: 10px;
+		max-width: 100%;
+	}
+
+div.info > div.boton > p
+	{
+		margin: 5px;
+		color: white;
+		font-size: 1.3em;
+	}
+
+div.mapa
+	{
+		padding:0;
+	}
+
+div.texto
+	{
+		padding: 10px 20px;
+	}
+
+h2, h3
+	{
+		font-family: LeagueSpartanBold;
+		margin: 0 0 15px 0;
+		font-size: 1.5em;
+	}
+
+h3
+	{
+		font-size: 1.1em;	
+	}
+
+article.intro > div.texto > ul
+	{
+		margin: 0 0 0 20px;	
+	}
+
+article.intro > div.texto > ul > li
+	{
+		padding: 5px;
+		margin-bottom: 5px;
+	}
+
+article.slide > div.info > ul > li
+	{
+		padding: 10px;
+		margin-bottom: 10px;
+		list-style: none;
+	}
+
+article.slide > div.info > ul
+	{
+		margin: 5px 0;
+	}
+
+li
+	{
+		font-family: "Helvetica", sans-serif;
+		font-size: 0.9em;
+	}
+
+li.select
+	{
+		border-radius: 8px;
+		color: white;
+	}
+
+.bien
+	{
+		background-color: green;
+		color: white;
+	}
+
+.mal
+	{
+		background-color: red;
+		color: white;
+	}
+
+.cercano
+	{
+		background-color: white;
+		border-radius: 10px;
+		color: rgba(61, 123, 172, 1);
+	}
+
+@media screen and (min-width: 900px)
+	{
+		section
+			{
+				max-width: 900px;		
+			}
+
+		article.slide.mostrar
+			{
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr;
+			}
+
+		div.info, div.mapa
+			{
+				padding: 20px;
+			}
+
+		div.info
+			{
+				flex-wrap: wrap;
+			}
+
+		div.botones
+			{
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+
+		div.boton
+			{
+				max-width: 160px;
+				min-width: 140px;
+				width: 100%;
+			}
+
+		div.boton > p
+			{
+				font-size: 1.3em;
+				margin-top: 20px;
+			}
+
+		div.info > div.boton > p
+			{
+				margin: 10px;
+				color: white;
+				font-size: 1.5em;
+			}
+
+		div.texto
+			{
+				display: block;
+				padding: 0px;
+			}
+
+		div.texto > p 
+			{
+				font-size: 1.3em;
+			}
+
+		iframe
+			{
+				max-height: 580px;
+				max-width: 600px;
+				border-radius: 20px;
+			}		
+
+		h2, h3
+			{
+				margin: 15px 0 0 0;
+			}
+
+		h2
+			{
+				font-size: 1.8em;
+			}
+
+		h3
+			{
+				font-size: 1.2em;
+			}
+
+		ul
+			{
+				margin: 20px 0;
+			}
+
+		li
+			{
+				font-size: 1.2em;
+			}
+
+		article.slide > div.info > ul > li
+			{
+				font-size: 1.8em;
+			}
+	}

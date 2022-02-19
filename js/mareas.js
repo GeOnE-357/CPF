@@ -1,52 +1,44 @@
-function main()
+function iniciar(sitio)
 	{
-		
 		const fechaHoy = new Date;
-		//const marea=filtrarFecha(fechaHoy.getMonth(),fechaHoy.getDate());
-		const mareas=filtrarFecha(0,1);
-		if(mareas === null)
-			{
-				console.log(mareas);		
-			}
-		definirHoras(mareas,2);
+		const mareas=filtrarFecha(fechaHoy.getMonth(),fechaHoy.getDate());
+		definirHoras(mareas,sitio,fechaHoy);
+		cambiar(1);
 	}
 
-main();
-
 //Funcion que define los horarios de transito segun el sector elegido.
-function definirHoras(mareasRecibidas,cantidad)
+function definirHoras(mareasRecibidas,sitio,fecha)
 	{
-		const fecha = new Date;
 		let mareas;
-		if(cantidad===2)
+		if(sitio==="norte" || sitio==="popper")
 			{
 				mareas= dosHoras(mareasRecibidas);		
 			}
-		if(cantidad===3)
+		if(sitio==="malvinas")
 			{
 				mareas= tresHoras(mareasRecibidas);
 			}
 		const actual = mareaActual(fecha, mareas);
-		//const minutosHoy = fecha.getHours()*60 + fecha.getMinutes();
-		const minutosHoy = 2*60 + 50;
+		const minutosHoy = fecha.getHours()*60 + fecha.getMinutes();
 		if(mareas[actual].estado==="pleamar")
 			{
 				const inicio = mareas[actual].horas*60 + mareas[actual].minutos;
 				const fin = mareas[actual].horas_fin*60 + mareas[actual].minutos_fin;
 				if(minutosHoy >= inicio && minutosHoy <= fin)
 					{
-						mareas[actual].circular="No transitar.";
+						mareas[actual].circular="No transitar";
 					}
 				else
 					{
-						mareas[actual].circular="Transitar.";	
+						mareas[actual].circular="Transitar";	
 					}
 			}
 		else
 			{
-				mareas[actual].circular="Transitar.";
+				mareas[actual].circular="Transitar";
 			}
-		console.log(mareas);
+		const lugar = filtrarSitio(mareas, sitio, actual);
+		completar(mareas, lugar, fecha);
 	}
 
 //Punta Popper y Costa Norte --- 2 horas, 1 antes y 1 despues de cada pleamar.
@@ -93,8 +85,7 @@ function mareaActual(fecha, mareas)
 	{
 		let actual=null;
 		let menor=null;
-		//const minutosHoy = fecha.getHours()*60 + fecha.getMinutes();
-		const minutosHoy = 2*60 + 50;
+		const minutosHoy = fecha.getHours()*60 + fecha.getMinutes();
 		for( dato in mareas)
 			{
 				const minutosDato = mareas[dato].horas*60+mareas[dato].minutos;
@@ -148,4 +139,90 @@ function sumaDeHoras(a,b)
 				resultado = 24 + resultado;
 			}
 		return resultado;
+	}
+
+//Recopila los articles del html 
+function slides()
+	{
+		const slides = document.querySelectorAll("article");
+		return slides;
+	}
+
+//Cambio de slide;
+function cambiar(num)
+	{
+		const slide = slides();
+		for(item of slide)
+			{
+				item.classList.remove("mostrar", 'animate__animated', 'animate__backInRight');
+			}
+
+		if (num===0)
+			{
+				slide[0].classList.add("mostrar", 'animate__animated', 'animate__backInLeft');
+				vaciar();
+			}
+		else
+			{
+				slide[1].classList.add("mostrar", 'animate__animated', 'animate__backInRight');
+			}
+	}
+
+//Vacia todos los elementos de slide.
+function vaciar()
+	{
+		document.querySelector("#sitio").innerHTML="";
+		document.querySelector("#fecha").innerHTML="";
+		document.querySelector("#listado").innerHTML="";
+		document.querySelector("#mapa").src="";
+	}
+
+//Agrega los contenidos al slide.
+function completar(mareas, sitio, fecha)
+	{
+		document.querySelector("#sitio").innerHTML=sitio.sitio;
+		document.querySelector("#mapa").src=sitio.mapa;
+		const dia = dbDia(fecha.getDay());
+		let hoy = fecha.getDate();
+		console.log(mareas);
+		if(hoy < 10)
+			{
+				hoy="0"+hoy;
+			}
+		let mes = fecha.getMonth()+1;
+		if(mes < 10)
+			{
+				mes="0"+mes;
+			}
+		document.querySelector("#fecha").innerHTML="Consulta: "+dia+" "+hoy+"/"+mes+" - "+fecha.getHours()+":"+fecha.getMinutes();
+		const listado = document.querySelector("#listado");
+		let estado;
+		for(dato of mareas)
+			{
+				const item = document.createElement("li");
+				item.innerHTML="<b>"+dato.horas+":"+dato.minutos+"</b>";
+				if(dato.horas_fin!==undefined)
+					{
+						item.innerHTML+=" - <b>"+dato.horas_fin+":"+dato.minutos_fin+"</b>";
+					}
+				if(dato.circular)
+					{
+						estado=dato.circular;
+						item.classList.add("cercano");
+					}
+				listado.appendChild(item);
+			}
+		const item = document.createElement("li");
+		item.classList.add("select");
+		if(estado==="No transitar")
+			{
+				item.classList.add("mal");
+				item.innerHTML="<b>Ud. no puede transitar ahora.</b>";
+			}
+		else
+			{	
+				item.classList.add("bien");
+				item.innerHTML="<b>Ud. puede transitar ahora.</b>";
+			}
+		listado.appendChild(item);
 	}

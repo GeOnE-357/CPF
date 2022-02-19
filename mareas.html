@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,9 +11,60 @@
 	<meta name="Distribution" content="global"/>
 	<meta name="Robots" content="all"/>
 	<title>Mareas</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo-min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
 </head>
 <body>
-	<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1AW-sz4dfRQPeRaLH2Mym4lPjw-doJ5qm&ehbc=2E312F" width="640" height="480"></iframe>
+	<section>
+		<article class="intro animate__animated animate__backInRight mostrar">
+			<div class="info">
+				<h2 class="centrado">Sectores de la playa</h2>
+				<div class="botones">
+					<div class="boton" onclick="iniciar('norte')">
+						<div class="imagen">
+							<img src="img/botones/norte.png">
+						</div>
+						<p>Costa Norte</p>
+					</div>
+					<div class="boton" onclick="iniciar('malvinas')">
+						<div class="imagen">
+							<img src="img/botones/malvinas.png">
+						</div>
+						<p>Monumento Malvinas</p>
+					</div>
+					<div class="boton" onclick="iniciar('popper')">
+						<div class="imagen">
+							<img src="img/botones/popper.png">
+						</div>
+						<p>Punta Popper</p>
+					</div>
+				</div>
+			</div>
+			<div class="texto">
+				<ul>
+					<li>Se declaran tres áreas sensibles: <b>Costa norte</b>, <b>Monumento Héroes de Malvinas</b> y <b>Punta Popper</b>.</li>
+					<li>Se establece un régimen de acceso, permanencia y tránsito en las áreas sensibles.</li>
+					<li>Las actividades de deportes, turísticas e investigación deberán contar con autorización de la autoridad de aplicación.</li>
+					<li>Se dota de presupuesto para personal de guardaparques para control y manejo de acciones que vayan en detrimento o cumplir el rol educativo en la atención de los visitantes.</li>
+					<li>Las actividades extractivas e ingreso de especies exóticas se prohíben.</li> 
+				</ul>
+			</div>
+		</article>
+		<article class="slide">
+			<div class="mapa">
+				<iframe id="mapa" src=""></iframe>
+			</div>
+			<div class="info">
+				<h2 id="sitio"></h2>
+				<h3 id="fecha"></h3>
+				<ul id="listado">
+				</ul>
+				<div class="boton" onclick="cambiar(0)">
+					<p>volver</p>
+				</div>
+			</div>
+		</article>
+	</section>
 	<script type="text/javascript" src="js/database.js"></script>
 	<script type="text/javascript" src="js/mareas.js"></script>
 </body>
