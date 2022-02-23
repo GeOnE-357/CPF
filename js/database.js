@@ -47,6 +47,7 @@ function dbMareas()
 		return db;
 	}
 
+//Funcion que devuelve el nombre del dia, segun el numero enviado.
 function dbDia(num)
 	{
 		const semana = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
@@ -83,7 +84,7 @@ function filtrarFecha(mes, dia)
 		return null;
 	}
 
-//Funcion que define cuales son "pleamar" y cuales "bajamar".
+//Funcion que define cuales son "pleamar" y cuales "bajamar" y envia las pleamares.
 function definirEstado(mareas)
 	{
 		
@@ -116,9 +117,18 @@ function definirEstado(mareas)
 					}
 			}
 		
-		return mareas;
+		const pleamares = [];
+		for(marea of mareas)
+			{
+				if(marea.estado==="pleamar")
+					{
+						pleamares.push(marea);
+					}
+			}
+		return pleamares;
 	}
 
+//Funcion que devuelve el mapa adecuado, si se puede circular o no y en que sector.
 function filtrarSitio(marea, lugar, actual)
 	{
 		const sitios = dbSitios();

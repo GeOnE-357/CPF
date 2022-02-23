@@ -9,7 +9,8 @@ function iniciar(sitio)
 //Funcion que define los horarios de transito segun el sector elegido.
 function definirHoras(mareasRecibidas,sitio,fecha)
 	{
-		let mareas;
+		let mareas = mareasRecibidas;
+		const actual = mareaActual(fecha, mareas);
 		if(sitio==="norte" || sitio==="popper")
 			{
 				mareas= dosHoras(mareasRecibidas);		
@@ -18,7 +19,6 @@ function definirHoras(mareasRecibidas,sitio,fecha)
 			{
 				mareas= tresHoras(mareasRecibidas);
 			}
-		const actual = mareaActual(fecha, mareas);
 		const minutosHoy = fecha.getHours()*60 + fecha.getMinutes();
 		if(mareas[actual].estado==="pleamar")
 			{
@@ -198,12 +198,7 @@ function completar(mareas, sitio, fecha)
 					{
 						item.innerHTML+=" a <b>"+agregarCero(dato.horas_fin)+":"+agregarCero(dato.minutos_fin)+"</b>";
 					}
-				item.innerHTML+=" = "+dato.estado;
-				if(dato.estado==="bajamar")
-					{
-						item.innerHTML+=" - <b>Transitar.</b>"
-					}
-				else
+				if(dato.estado!=="bajamar")
 					{
 						item.innerHTML+=" - <b>No transitar.</b>"	
 					}
@@ -227,7 +222,12 @@ function completar(mareas, sitio, fecha)
 				item.classList.add("bien");
 				item.innerHTML="<b>Ud. puede transitar ahora.</b>";
 			}
+		
+		const item2 = document.createElement("li");
+		item2.innerHTML="Cálculos realizados a partir de la </br><a href='http://www.hidro.gov.ar/oceanografia/Tmareas/Form_Tmareas.asp'>Tabla de mareas de Hidrografía Naval<a/>."
+
 		listado.appendChild(item);
+		listado.appendChild(item2);
 	}
 
 //Agrega un cero a los numeros menores a nueve.
