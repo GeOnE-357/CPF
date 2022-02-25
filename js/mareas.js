@@ -175,6 +175,7 @@ function vaciar()
 		document.querySelector("#fecha").innerHTML="";
 		document.querySelector("#listado").innerHTML="";
 		document.querySelector("#mapa").src="";
+		document.querySelector("#horario").innerHTML="";
 	}
 
 //Agrega los contenidos al slide.
@@ -188,6 +189,16 @@ function completar(mareas, sitio, fecha)
 		let mes = fecha.getMonth()+1;
 		mes = agregarCero(mes);
 		document.querySelector("#fecha").innerHTML="Consulta: "+dia+" "+hoy+"/"+mes+" - "+agregarCero(fecha.getHours())+":"+agregarCero(fecha.getMinutes());
+		if(sitio.clave==="norte" || sitio.clave==="popper")
+			{
+				document.querySelector("#horario").innerHTML="<b>Restricción horaria: </b>Comienza <b>1 hora antes</b> de cada pleamar y finaliza <b>1 hora después</b> de cada pleamar.";
+			}
+		if(sitio.clave==="malvinas")
+			{
+				document.querySelector("#horario").innerHTML="<b>Restricción horaria: </b>Comienza <b>2 horas después</b> de cada pleamar con una duración de <b>3 horas</b>.";
+			}
+
+		
 		const listado = document.querySelector("#listado");
 		let estado;
 		for(dato of mareas)

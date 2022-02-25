@@ -52,6 +52,11 @@ p
 		font-size: 1em;
 	}
 
+div.info > p
+	{
+		margin: 10px 0;
+	}
+
 a.boton
 	{
 
@@ -99,6 +104,30 @@ div.boton:hover
 	{
 		transform: scale(0.9);
 		transition: all 0.5s;
+	}
+
+div.restriccion
+	{
+		padding: 10px 15px;
+		background-color: rgba(61, 123, 172, 0.7);
+		border-radius: 10px;
+		display: inline-flex;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+div.restriccion > img
+	{
+		width: 40px;
+		height: 40px;
+		margin-right: 15px;
+	}
+
+div.restriccion > p
+	{
+		font-family: "Helvetica", sans-serif;
+		font-size: 0.9em;
+		color: white;
 	}
 
 div.imagen > img
