@@ -235,7 +235,7 @@ function completar(mareas, sitio, fecha)
 			}
 		
 		const item2 = document.createElement("li");
-		item2.innerHTML="Cálculos realizados a partir de la </br><a href='http://www.hidro.gov.ar/oceanografia/Tmareas/Form_Tmareas.asp'>Tabla de mareas de Hidrografía Naval<a/>."
+		item2.innerHTML="Cálculos realizados a partir de la </br><a href='http://www.hidro.gov.ar/oceanografia/Tmareas/Form_Tmareas.asp'>Tabla de mareas del Servicio de </br>Hidrografía Naval<a/>."
 
 		listado.appendChild(item);
 		listado.appendChild(item2);

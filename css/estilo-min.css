@@ -85,6 +85,21 @@ a.boton:hover
 		transition: all 0.5s;
 	}
 
+a.volver
+	{
+		max-width: 30px;
+		margin: 5px 10px 5px 0;
+		padding: 5;
+		font-size: 0.6em;
+	}
+
+div.titulo
+	{
+		display: inline-flex;
+		align-items: center;
+		max-height: 70px;
+	}
+
 div.botones
 	{
 		width: 100%;
@@ -113,7 +128,7 @@ div.restriccion
 		border-radius: 10px;
 		display: inline-flex;
 		align-items: center;
-		margin-top: 10px;
+		margin: 10px 0 10px 0;
 	}
 
 div.restriccion > img
@@ -188,7 +203,7 @@ div.texto
 h2, h3
 	{
 		font-family: LeagueSpartanBold;
-		margin: 0 0 15px 0;
+		margin: 0 0 0 0;
 		font-size: 1.5em;
 	}
 
@@ -321,7 +336,7 @@ li.select
 
 		h2, h3
 			{
-				margin: 15px 0 0 0;
+				margin: 10px 0 0 0;
 			}
 
 		h2
