@@ -2,7 +2,15 @@ function iniciar(sitio)
 	{
 		const fechaHoy = new Date;
 		const mareas=filtrarFecha(fechaHoy.getMonth(),fechaHoy.getDate());
-		definirHoras(mareas,sitio,fechaHoy);
+		if(mareas===null)
+			{
+				noHayFecha(sitio,fechaHoy);
+			}
+		else
+			{
+				definirHoras(mareas,sitio,fechaHoy);		
+			}
+		
 		cambiar(1);
 	}
 
@@ -239,6 +247,21 @@ function completar(mareas, sitio, fecha)
 
 		listado.appendChild(item);
 		listado.appendChild(item2);
+	}
+
+//Excepcion para cuando la fecha buscada no esta en la BD.
+function noHayFecha(sitio, fecha)
+	{
+		let lugar = filtrarSitioPorLugar(sitio);
+		document.querySelector("#sitio").innerHTML=lugar.sitio;
+		document.querySelector("#mapa").src=lugar.mapa;
+		const dia = dbDia(fecha.getDay());
+		let hoy = fecha.getDate();
+		hoy = agregarCero(hoy);
+		let mes = fecha.getMonth()+1;
+		mes = agregarCero(mes);
+		document.querySelector("#fecha").innerHTML="Consulta: "+dia+" "+hoy+"/"+mes+" - "+agregarCero(fecha.getHours())+":"+agregarCero(fecha.getMinutes());
+		document.querySelector("#horario").innerHTML="<b>Restricción horaria: </b>No existe restricción horaria para el día de la consulta.";
 	}
 
 //Agrega un cero a los numeros menores a nueve.
