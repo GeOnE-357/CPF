@@ -1,7 +1,8 @@
 function iniciar(sitio)
 	{
 		const fechaHoy = new Date;
-		const mareas=filtrarFecha(fechaHoy.getMonth(),fechaHoy.getDate());
+		console.log(fechaHoy.getMonth()+1);
+		const mareas=filtrarFecha(fechaHoy.getMonth()+1,fechaHoy.getDate());
 		if(mareas===null)
 			{
 				noHayFecha(sitio,fechaHoy);
